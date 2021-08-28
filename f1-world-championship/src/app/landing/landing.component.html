@@ -1,2 +1,8 @@
-<app-data-table [data]="dataTableData" [columnsDefinition]="dataTableColumnsDefinition"
-    [paginatorConfig]="paginatorConfig" (page)="onPage($event)"></app-data-table>
+<app-menu-header [menuItems]="menuItems" (menuIconClick)="menuIconClick()"></app-menu-header>
+
+<app-sidenav-menu [menuItems]="menuItems">
+    <div class="table_wrapper">
+        <app-data-table [data]="dataTableData" [columnsDefinition]="dataTableColumnsDefinition"
+            [paginatorConfig]="paginatorConfig" (page)="onPage($event)"></app-data-table>
+    </div>
+</app-sidenav-menu>

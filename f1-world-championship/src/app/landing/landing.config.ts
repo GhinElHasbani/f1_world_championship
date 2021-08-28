@@ -1,5 +1,6 @@
 import { DataTableColumnFormat } from "../shared/enums";
 import { DataTableColumnDefinition } from "../shared/models/frontend";
+import { MenuItem } from "./sidenav-menu/menu-items.model";
 
 export const seriesListingDatatableColumnDefinition: DataTableColumnDefinition[] = [
     new DataTableColumnDefinition('season', 'Season'),
@@ -12,6 +13,21 @@ export const seriesListingDatatableColumnDefinition: DataTableColumnDefinition[]
     new DataTableColumnDefinition('url', 'Information'),
 ];
 
-export const seriesListingFormConfig = {
-    email: ['']
-};
+export const landingMenuItems: MenuItem[] = [
+    {
+        label: "Races",
+        link: "'/races'"
+    },
+    {
+        label: "Constructors",
+        link: "'/constructors'"
+    },
+    {
+        label: "Circiuts",
+        link: "'/circuits'"
+    },
+    {
+        label: "Drivers",
+        link: "'/divers'"
+    }
+];

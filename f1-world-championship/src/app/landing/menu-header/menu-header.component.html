@@ -1,0 +1,17 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon (click)="clickMenuIcon()">menu</mat-icon>
+        </button>
+        <h1>{{'landing.header.title' | translate}}</h1>
+        <span class="menu-spacer"></span>
+
+    </mat-toolbar-row>
+
+    <mat-toolbar-row>
+        <div>
+            <a *ngFor="let menuItem of menuItems" mat-button [routerLink]="menuItem.link"> {{menuItem.label}} </a>
+
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

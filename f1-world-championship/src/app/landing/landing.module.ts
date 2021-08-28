@@ -4,11 +4,15 @@ import { LandingComponent } from './landing.component';
 import { SharedModule } from '../shared/shared.module';
 import { LandingService } from './landing.service';
 import { LandingRoutingModule } from './landing-routing.module';
+import { SidenavMenuComponent } from './sidenav-menu/sidenav-menu.component';
+import { MenuHeaderComponent } from './menu-header/menu-header.component';
 
 
 @NgModule({
   declarations: [
-    LandingComponent
+    LandingComponent,
+    SidenavMenuComponent,
+    MenuHeaderComponent
   ],
   imports: [
     SharedModule,
