@@ -1,0 +1,41 @@
+<mat-table [dataSource]="dataSource">
+
+  <ng-container [matColumnDef]="col?.property" *ngFor="let col of columnsDefinition">
+
+    <ng-container>
+      <mat-header-cell *matHeaderCellDef [ngClass]="getCellClass(col)"> {{ col?.label }} </mat-header-cell>
+    </ng-container>
+
+    <ng-container>
+      <ng-container *ngIf="col?.action; else nonClickableCol">
+        <mat-cell *matCellDef="let row" [ngClass]="getSelectableCellClass(col)" (click)="onTableCellActionClick(row, col)">
+          {{ formatCellValue(col, row) }} </mat-cell>
+      </ng-container>
+      <ng-template #nonClickableCol>
+        <mat-cell *matCellDef="let row" [ngClass]="getCellClass(col)">
+          {{ formatCellValue(col, row) }}
+          <mat-icon *ngIf="col?.icon">{{ row[col?.icon] }}</mat-icon>
+        </mat-cell>
+      </ng-template>
+    </ng-container>
+
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="columnsProperty"></mat-header-row>
+
+  <ng-container *ngIf="rowClickable; else nonClickableRow">
+    <mat-row *matRowDef="let row; columns: columnsProperty;" [class.hover]="rowClickable"
+      [class.active]="selectedRow == row" (click)="onRowClick(row)"></mat-row>
+  </ng-container>
+
+  <ng-template #nonClickableRow>
+    <mat-row *matRowDef="let row; columns: columnsProperty;"></mat-row>
+  </ng-template>
+</mat-table>
+
+<div class="no-results-found" *ngIf="isResultsNotFound()">{{noResultMessage}}</div>
+
+<mat-paginator *ngIf="isPaginatorEnabled()" [pageIndex]="paginatorConfig?.offset" [pageSize]="paginatorConfig?.limit"
+  [pageSizeOptions]="paginatorConfig?.limitOptions" [length]="paginatorConfig?.length"
+  [showFirstLastButtons]="paginatorConfig?.showFirstLastButtons">
+</mat-paginator>

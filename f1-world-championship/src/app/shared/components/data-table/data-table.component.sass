@@ -1,0 +1,64 @@
+
+\:host
+    display: block
+    background-color: #fff
+    padding: 0px
+
+mat-table
+    overflow: auto
+
+mat-row
+    &:hover
+        background-color: grey
+    &.active
+        background-color: grey
+        font-weight: bold
+
+mat-header-cell
+    font-size: 12px
+    
+mat-header-cell,
+mat-cell
+    padding-left: 10px
+    padding-right: 10px
+    word-break: break-word
+    min-width: 145px
+    &.hover
+        cursor: pointer        
+
+.mat-header-row, .mat-row
+    min-width: 100%
+    width: min-content
+
+.smallCol
+    flex: 0 0 5%
+
+.no-results-found
+    background: #fff
+    font-size: 20px
+    text-align: center
+    padding: 10px 24px 0
+
+.date-cell
+    justify-content: center
+
+.amount-cell
+    justify-content: flex-end
+
+.phone-number-cell
+    justify-content: center
+
+.truncable-cell
+    white-space: nowrap
+    text-overflow: ellipsis 
+    overflow: hidden
+    max-height: 150px
+    width: 200px
+        
+.left-align
+    text-align: left
+.link-cell
+    color: #4288f6
+    
+.column-left 
+    justify-content: left !important
