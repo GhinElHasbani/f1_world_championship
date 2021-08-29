@@ -82,7 +82,10 @@ export class FrameworkHelper extends LanguageHelper {
     static unsubscribeAll(subscriptions: Subscription[]) {
         if (this.isDefined(subscriptions)) {
             subscriptions.forEach(
-                subscription => this.unsubscribe(subscription)
+                subscription => {
+                    if (subscription)
+                        this.unsubscribe(subscription)
+                }
             );
         }
     }

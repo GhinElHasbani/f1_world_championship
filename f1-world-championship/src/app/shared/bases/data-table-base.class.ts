@@ -35,9 +35,9 @@ export abstract class DataTableBaseClass<RowModel> extends HelpersBaseClass {
         const dataTablePayload = new DataTable<any>();
 
         const body = this.getBody(response)?.MRData;
-    
+
         const rows = this.isNotDefined(property) ? (body || []) : (this.getPropValue(body, property) || []);
-       
+
         dataTablePayload.currentlyVisibleRows = rows;
         dataTablePayload.totalNumberOfVisibleRows = body.total;
 
@@ -54,17 +54,16 @@ export abstract class DataTableBaseClass<RowModel> extends HelpersBaseClass {
         return dataTablePayload;
     }
 
-    getDataTableRequestPayload(dataTableComponent?: DataTableComponent): DataTableRequestModel {
-        const dataTable = dataTableComponent || this.dataTableComponent;
-        if (this.isDataTableComponentDefined()) {
-            const pageChangeEvent = this.languageHelper.deleteUndefinedProps(dataTable.getPageChangeEvent());
-            const dataTablePayload = [pageChangeEvent];
-            if (this.isPaginatorEnabled()) {
-                dataTablePayload.push(pageChangeEvent);
+    getPaginationParam(paginationObj?: PageChangeEvent): DataTableRequestModel {
+        let pagParam: DataTableRequestModel;
+        if (paginationObj && this.isPaginatorEnabled()) {
+            pagParam = {
+                offset: paginationObj.offset * paginationObj.limit,
+                limit: paginationObj.limit
+
             }
-            return this.languageHelper.objectAssign([dataTablePayload]);
         }
-        else return null;
+        return pagParam;
     }
 
     isDataTableComponentDefined() {

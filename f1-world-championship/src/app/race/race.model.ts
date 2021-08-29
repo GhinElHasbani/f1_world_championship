@@ -1,6 +1,6 @@
 import { LookupOptionModel } from "../shared/models/frontend";
 
-export class SesonsModel {
+export class RaceModel {
     constructor(
         public Season?: number,
         public Round?: number,
