@@ -5,9 +5,10 @@ import { LandingComponent } from './landing.component';
 const routes: Routes = [
   {
     path: '', component: LandingComponent,
-    children: [{
-      path: 'races', loadChildren: () => import('../race/race.module').then(m => m.RaceModule)
-    }]
+    children: [
+      { path: 'seasons', loadChildren: () => import('../seasons/seasons.module').then(m => m.SeasonsModule) },
+      { path: 'races', loadChildren: () => import('../races/races.module').then(m => m.RacesModule) }
+    ]
   }
 ];
 

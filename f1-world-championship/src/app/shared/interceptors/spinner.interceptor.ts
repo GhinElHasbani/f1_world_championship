@@ -31,7 +31,8 @@ export class SpinnerInterceptor implements HttpInterceptor {
                         (response instanceof HttpResponse) ||
                         (response instanceof HttpErrorResponse)
                     ) {
-                        if (showLoader) { this.spinnerService.popRequest(); }
+                        if (showLoader) { 
+                            this.spinnerService.popRequest(); }
                     }
                     
                     return response;

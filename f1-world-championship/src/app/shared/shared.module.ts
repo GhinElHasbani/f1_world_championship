@@ -4,7 +4,6 @@ import { InterceptorsModule } from './modules/interceptors.module';
 import { ServicesModule } from './modules/services.module';
 
 @NgModule({
-  declarations: [],
   imports: [ComponentsModule],
   exports: [
     ComponentsModule
