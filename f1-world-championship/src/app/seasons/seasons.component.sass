@@ -1,0 +1,30 @@
+@import 'src/assets/global-styles/abstracts/vars'
+    
+.cards_wrapper
+    display: inline-flex
+    flex-direction: row
+    flex-wrap: wrap
+    gap: 20px
+    padding: 25px 3%
+    mat-card.mat-card.year_card
+        .mat-card-image
+            height: calc(100% - 190px)
+            object-fit: cover
+        &:hover
+            background-color: #fff2f2
+            position: relative
+            transform: scaleX(1.5) scaleY(1.1)
+            transition: 0.4s ease-in-out
+            z-index: 1
+            mat-card-title.mat-card-title
+                transition: font-size 0.4s
+                font-size: x-large
+
+@media screen and ( max-width: $breakpoint-mobile )
+    .cards_wrapper
+        display: grid
+        grid-template-columns: 49% 49%
+        flex-direction: none
+        flex-wrap: none
+        grid-gap: 2%
+    

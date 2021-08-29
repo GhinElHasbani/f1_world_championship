@@ -6,8 +6,12 @@ const routes: Routes = [
   {
     path: '', component: LandingComponent,
     children: [
+      { path: '', redirectTo: 'seasons' },
       { path: 'seasons', loadChildren: () => import('../seasons/seasons.module').then(m => m.SeasonsModule) },
-      { path: 'races', loadChildren: () => import('../races/races.module').then(m => m.RacesModule) }
+      { path: 'races', loadChildren: () => import('../races/races.module').then(m => m.RacesModule) },
+      { path: 'circuits', loadChildren: () => import('../races/races.module').then(m => m.RacesModule) },
+      { path: 'drivers', loadChildren: () => import('../races/races.module').then(m => m.RacesModule) },
+      { path: 'constructors', loadChildren: () => import('../races/races.module').then(m => m.RacesModule) }
     ]
   }
 ];

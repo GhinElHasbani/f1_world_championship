@@ -28,7 +28,7 @@ export abstract class HttpBaseClass extends HttpManagerClass {
                 }));
             }
         }
-        else return null;
+        else return of(null);
     }
 
     post<T>(method: string,

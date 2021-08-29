@@ -2,7 +2,7 @@
     <mat-sidenav #sidenav>
         <mat-nav-list>
 
-            <a *ngFor="let menuItem of menuItems" mat-list-item [routerLink]="menuItem.link"> {{menuItem.label}} </a>
+            <a class="menu_item" *ngFor="let menuItem of menuItems" mat-list-item [routerLink]="menuItem.link" routerLinkActive="underlined" [routerLinkActiveOptions]="{exact: true}"> {{menuItem.label}} </a>
 
         </mat-nav-list>
     </mat-sidenav>

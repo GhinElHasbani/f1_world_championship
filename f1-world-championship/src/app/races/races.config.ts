@@ -9,5 +9,5 @@ export const racesListingDatatableColumnDefinition: DataTableColumnDefinition[] 
     new DataTableColumnDefinition('Circuit.circuitName', 'Circuit'),
     new DataTableColumnDefinition('Circuit.Location.locality', 'Locality'),
     new DataTableColumnDefinition('Circuit.Location.country', 'Country'),
-    new DataTableColumnDefinition('url', 'Information'),
+    new DataTableColumnDefinition('url', '', DataTableColumnFormat.Link, true, undefined, undefined, 'link'),
 ];

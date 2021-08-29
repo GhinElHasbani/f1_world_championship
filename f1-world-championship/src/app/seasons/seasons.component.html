@@ -1,4 +1,21 @@
-<div class="table_wrapper">
-    <app-data-table [data]="dataTableData" [columnsDefinition]="dataTableColumnsDefinition"
-        [paginatorConfig]="paginatorConfig" (page)="onPage($event)"></app-data-table>
+<div class="cards_wrapper">
+    <mat-card class="year_card" *ngFor="let s of seasonsList">
+        <mat-card-header>
+            <mat-card-title>{{s.Season}}</mat-card-title>
+            <mat-card-subtitle>TOP 1</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="s.Races[0].QualifyingResults[0].Driver.image" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <p>
+                {{s.Races[0].QualifyingResults[0].Driver.givenName}}
+                {{s.Races[0].QualifyingResults[0].Driver.familyName}}
+            </p>
+            <p>
+                {{s.Races[0].QualifyingResults[0].Constructor.name}}
+            </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button (click)="goToRaceDetails(s.Season)">See More...</button>
+        </mat-card-actions>
+    </mat-card>
 </div>

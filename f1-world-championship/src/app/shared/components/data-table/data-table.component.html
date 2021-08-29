@@ -6,9 +6,16 @@
       <mat-header-cell *matHeaderCellDef [ngClass]="getCellClass(col)"> {{ col?.label }} </mat-header-cell>
     </ng-container>
 
+    <ng-container *ngIf="col?.format === columnFormat.Link">
+      <mat-cell *matCellDef="let row" [ngClass]="getCellClass(col)">
+        <mat-icon *ngIf="col.icon" (click)="openWindow(row[col.property])" class="pointer">{{ col.icon }}</mat-icon>
+      </mat-cell>
+    </ng-container>
+
     <ng-container>
       <ng-container *ngIf="col?.action; else nonClickableCol">
-        <mat-cell *matCellDef="let row" [ngClass]="getSelectableCellClass(col)" (click)="onTableCellActionClick(row, col)">
+        <mat-cell *matCellDef="let row" [ngClass]="getSelectableCellClass(col)"
+          (click)="onTableCellActionClick(row, col)">
           {{ formatCellValue(col, row) }} </mat-cell>
       </ng-container>
       <ng-template #nonClickableCol>

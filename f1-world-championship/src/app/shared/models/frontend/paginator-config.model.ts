@@ -1,6 +1,6 @@
 export class PaginatorConfig {
     constructor(
-        public enabled = false,
+        public enabled = true,
         public offset = 0,
         public limit = 20,
         public limitOptions = [10, 20, 50],

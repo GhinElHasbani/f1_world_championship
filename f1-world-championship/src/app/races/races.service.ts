@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
 import { HttpBaseClass } from '../shared/bases/http-base.class';
+import { APP_SERIES } from '../shared/constants';
 import { PageChangeEvent } from '../shared/models/backend';
 
 @Injectable()
@@ -13,7 +14,7 @@ export class RacesService extends HttpBaseClass {
     super(http, injector);
   }
 
-  getRacesList(paginationObj: PageChangeEvent) {
-    return this.get('f1/races', this.setAndGetParams(paginationObj));
+  getRacesList(season: number, paginationObj: PageChangeEvent) {
+    return this.get(`${APP_SERIES}/${season}/races`, this.setAndGetParams(paginationObj));
   }
 }

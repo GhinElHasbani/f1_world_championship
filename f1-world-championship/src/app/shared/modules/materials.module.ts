@@ -10,6 +10,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
     exports: [
@@ -23,7 +24,8 @@ import { MatListModule } from '@angular/material/list';
         MatSnackBarModule,
         MatToolbarModule,
         MatSidenavModule,
-        MatListModule
+        MatListModule,
+        MatCardModule
     ],
     providers: []
 })

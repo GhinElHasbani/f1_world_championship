@@ -11,6 +11,7 @@ export class LandingComponent implements OnInit {
 
   @ViewChild(SidenavMenuComponent) sidenavMenuComp: SidenavMenuComponent;
   public menuItems = landingMenuItems;
+  public displayMenu: boolean = false;
 
   constructor() {
   }
@@ -19,7 +20,10 @@ export class LandingComponent implements OnInit {
   }
 
   menuIconClick() {
-    this.sidenavMenuComp.toggleNav();
+    this.displayMenu = !this.displayMenu;
+    if (window.innerWidth < 768) {
+      this.sidenavMenuComp.toggleNav();
+    }
   }
 
 }

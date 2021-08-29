@@ -9,13 +9,15 @@ import { MenuItem } from '../sidenav-menu/menu-items.model';
 export class MenuHeaderComponent implements OnInit {
   @Output() menuIconClick: EventEmitter<any> = new EventEmitter();
   @Input() menuItems: MenuItem[] = [];
-  
+  public displayMenu: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
   }
-  
+
   public clickMenuIcon() {
+    this.displayMenu = !this.displayMenu;
     this.menuIconClick.emit();
   }
 

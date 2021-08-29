@@ -9,10 +9,10 @@
 
         </mat-toolbar-row>
 
-        <mat-toolbar-row>
+        <mat-toolbar-row *ngIf="displayMenu" class="large_screen_menu">
             <div class="tabs_wrapper">
                 
-                <a *ngFor="let menuItem of menuItems" mat-button [routerLink]="menuItem.link" class="tab_item"> {{menuItem.label}} </a>
+                <a *ngFor="let menuItem of menuItems" mat-button [routerLink]="menuItem.link" class="tab_item" routerLinkActive="_active" [routerLinkActiveOptions]="{exact: true}"> {{menuItem.label}} </a>
 
             </div>
         </mat-toolbar-row>

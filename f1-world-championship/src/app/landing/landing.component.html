@@ -1,7 +1,11 @@
-<app-menu-header [menuItems]="menuItems" (menuIconClick)="menuIconClick()"></app-menu-header>
+<div class="landing_header">
+    <app-menu-header [menuItems]="menuItems" (menuIconClick)="menuIconClick()"></app-menu-header>
+</div>
 
 <app-sidenav-menu [menuItems]="menuItems">
 
-    <router-outlet></router-outlet>
+    <div class="content_wrapper" [ngClass]="{'add_top': displayMenu}">
+        <router-outlet></router-outlet>
+    </div>
 
 </app-sidenav-menu>

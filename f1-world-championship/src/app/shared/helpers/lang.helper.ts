@@ -417,4 +417,11 @@ export class LanguageHelper {
         return [text.split(char)[0], text.split(char).slice(1).join(char)]
     }
 
+    static generateListFromTo(from: number, to: number) {
+        if (to > from) {
+            return Array.from({ length: to - from + 1 }, (v, k) => k + from);
+        }
+        else return null;
+    }
+
 }

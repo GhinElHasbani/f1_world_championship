@@ -108,7 +108,7 @@ export class DataTableComponent extends HelpersBaseClass implements OnInit, Afte
   }
 
   getSelectableCellClass(column: DataTableColumnDefinition) {
-    return this.frameworkHelper.objectAssign([{'hover': true}], this.getCellClass(column))
+    return this.frameworkHelper.objectAssign([{ 'hover': true }], this.getCellClass(column))
   }
 
   getCellClass(column: DataTableColumnDefinition) {
@@ -150,6 +150,10 @@ export class DataTableComponent extends HelpersBaseClass implements OnInit, Afte
   onRowClick(row: any) {
     this.selectedRow = row;
     this.rowClick.emit(row);
+  }
+
+  openWindow(link) {
+    window.open(link, "_blank");
   }
 
   hookPaginationAndSortingToDataTable() {
