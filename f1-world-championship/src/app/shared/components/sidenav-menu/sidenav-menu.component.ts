@@ -3,7 +3,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MenuItem } from './menu-items.model';
 
 @Component({
-  selector: 'app-sidenav-menu',
+  selector: 'f1app-sidenav-menu',
   templateUrl: './sidenav-menu.component.html',
   styleUrls: ['./sidenav-menu.component.sass']
 })

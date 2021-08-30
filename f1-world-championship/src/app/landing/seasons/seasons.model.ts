@@ -1,5 +1,5 @@
-import { Race } from "../shared/models/backend/be-data.model";
-import { LookupOptionModel } from "../shared/models/frontend";
+import { Race } from "../../shared/models/backend/be-data.model";
+import { LookupOptionModel } from "../../shared/models/frontend";
 
 export class SeasonModel {
     constructor(

@@ -1,5 +1,5 @@
 <div class="cards_wrapper" *ngIf="seasonsList && seasonsList.length > 0">
-    <mat-card class="year_card" *ngFor="let s of seasonsList">
+    <mat-card class="year_card" *ngFor="let s of seasonsList" (click)="goToRaceDetails(s.Season)">
         <mat-card-header>
             <mat-card-title (click)="goToRaceDetails(s.Season)">{{s.Season}}</mat-card-title>
             <mat-card-subtitle>TOP 1</mat-card-subtitle>
@@ -14,7 +14,7 @@
                         {{s.Races[0].QualifyingResults[0].Driver.givenName}}
                         {{s.Races[0].QualifyingResults[0].Driver.familyName}}
                     </p>
-                    <p>
+                    <p class="bold-text">
                         {{s.Races[0].QualifyingResults[0].Constructor.name}}
                     </p>
                 </div>

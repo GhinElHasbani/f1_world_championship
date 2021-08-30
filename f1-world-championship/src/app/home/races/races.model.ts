@@ -1,4 +1,4 @@
-import { LookupOptionModel } from "../shared/models/frontend";
+import { LookupOptionModel } from "../../shared/models/frontend";
 
 export class RaceModel {
     constructor(

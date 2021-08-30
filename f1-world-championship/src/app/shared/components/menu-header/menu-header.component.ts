@@ -1,8 +1,9 @@
-import { EventEmitter, Output, Component, OnInit, Input } from '@angular/core';
+import { EventEmitter, Output, Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MenuItem } from '../sidenav-menu/menu-items.model';
+import { SidenavMenuComponent } from '../sidenav-menu/sidenav-menu.component';
 
 @Component({
-  selector: 'app-menu-header',
+  selector: 'f1app-menu-header',
   templateUrl: './menu-header.component.html',
   styleUrls: ['./menu-header.component.sass']
 })
@@ -10,6 +11,8 @@ export class MenuHeaderComponent implements OnInit {
   @Output() menuIconClick: EventEmitter<any> = new EventEmitter();
   @Input() menuItems: MenuItem[] = [];
   public displayMenu: boolean = false;
+  @ViewChild(SidenavMenuComponent) sidenavMenuComp: SidenavMenuComponent;
+
 
   constructor() { }
 
@@ -18,6 +21,9 @@ export class MenuHeaderComponent implements OnInit {
 
   public clickMenuIcon() {
     this.displayMenu = !this.displayMenu;
+    if (window.innerWidth < 768) {
+      this.sidenavMenuComp.toggleNav();
+    }
     this.menuIconClick.emit();
   }
 

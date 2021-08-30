@@ -1,5 +1,5 @@
-import { DataTableColumnFormat } from "../shared/enums";
-import { DataTableColumnDefinition } from "../shared/models/frontend";
+import { DataTableColumnFormat } from "../../shared/enums";
+import { DataTableColumnDefinition } from "../../shared/models/frontend";
 
 export const seasonsListingDatatableColumnDefinition: DataTableColumnDefinition[] = [
     new DataTableColumnDefinition('season', 'Season'),

@@ -1,6 +1,6 @@
 import { MenuItem } from "../shared/components/sidenav-menu/menu-items.model";
 
-export const landingMenuItems: MenuItem[] = [
+export const homeMenuItems: MenuItem[] = [
     {
         label: "Seasons",
         link: "/seasons"

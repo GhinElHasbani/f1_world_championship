@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
-import { HttpBaseClass } from '../shared/bases/http-base.class';
-import { APP_SERIES } from '../shared/constants';
-import { PageChangeEvent } from '../shared/models/backend';
+import { HttpBaseClass } from '../../shared/bases/http-base.class';
+import { APP_SERIES } from '../../shared/constants';
+import { PageChangeEvent } from '../../shared/models/backend';
 
 @Injectable()
 export class SeasonsService extends HttpBaseClass {
@@ -14,8 +14,8 @@ export class SeasonsService extends HttpBaseClass {
     super(http, injector);
   }
 
-  getSeasonWinner(season: number) {
-    return this.get(`${APP_SERIES}/${season}/last/results/1/qualifying`, undefined, undefined, undefined, true);
+  getSeasonWinner(currentSeries: string, season: number) {
+    return this.get(`${currentSeries}/${season}/last/results/1/qualifying`, undefined, undefined, undefined, true);
   }
 
   getDriverPhoto(driverName: string){

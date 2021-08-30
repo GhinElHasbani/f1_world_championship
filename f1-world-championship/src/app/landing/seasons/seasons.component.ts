@@ -1,8 +1,8 @@
 import { Component, Injector, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { HelpersBaseClass } from '../shared/bases/helpers-base.class';
-import { PageChangeEvent } from '../shared/models/backend';
+import { HelpersBaseClass } from '../../shared/bases/helpers-base.class';
+import { PageChangeEvent } from '../../shared/models/backend';
 import { SeasonModel } from './seasons.model';
 import { SeasonsService } from './seasons.service';
 
@@ -15,22 +15,27 @@ export class SeasonsComponent extends HelpersBaseClass implements OnInit, OnDest
   private startYear = 2015;
   public seasonsList: SeasonModel[] = [];
   getSubscription: Subscription;
+  currentSeries: any;
 
   constructor(
     private _seasonsService: SeasonsService,
-    private router: Router) {
+    private router: Router,
+    private route: ActivatedRoute) {
     super();
   }
 
   ngOnInit(): void {
     const thisYear = (new Date()).getFullYear();
     this.seasonsList = this.languageHelper.generateListFromTo(this.startYear, thisYear).sort((a, b) => b - a).map(m => { return { Season: m } });
-    this.getWinnersBySeason(this.seasonsList);
+    this.route.params.subscribe(p => {
+      this.currentSeries = p['series'];
+      this.getWinnersBySeason(this.currentSeries, this.seasonsList);
+    })
   }
 
-  getWinnersBySeason(seasonsList) {
+  getWinnersBySeason(currentSeries, seasonsList) {
     seasonsList.forEach(s => {
-      this.getSubscription = this._seasonsService.getSeasonWinner(s.Season).subscribe(data => {
+      this.getSubscription = this._seasonsService.getSeasonWinner(currentSeries, s.Season).subscribe(data => {
         if (data) {
           s.Races = data.body.MRData.RaceTable.Races;
           const driverUrl = s.Races[0].QualifyingResults[0].Driver.url;
@@ -47,7 +52,7 @@ export class SeasonsComponent extends HelpersBaseClass implements OnInit, OnDest
   }
 
   goToRaceDetails(season) {
-    this.router.navigate(['races'], { queryParams: { season: season } });
+    this.router.navigate([`home/${this.currentSeries}/${season}/races`]);
   }
 
   ngOnDestroy() {

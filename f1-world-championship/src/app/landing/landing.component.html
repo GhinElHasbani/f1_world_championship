@@ -1,11 +1,8 @@
-<div class="landing_header">
-    <app-menu-header [menuItems]="menuItems" (menuIconClick)="menuIconClick()"></app-menu-header>
+<f1app-menu-header></f1app-menu-header>
+
+<div class="content_wrapper">
+ 
+    <!-- <f1app-seasons></f1app-seasons> -->
+    <router-outlet></router-outlet>
+
 </div>
-
-<app-sidenav-menu [menuItems]="menuItems">
-
-    <div class="content_wrapper" [ngClass]="{'add_top': displayMenu}">
-        <router-outlet></router-outlet>
-    </div>
-
-</app-sidenav-menu>

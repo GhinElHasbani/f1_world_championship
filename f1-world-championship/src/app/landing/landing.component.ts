@@ -1,29 +1,23 @@
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { landingMenuItems } from './landing.config';
-import { SidenavMenuComponent } from './sidenav-menu/sidenav-menu.component';
+import { SidenavMenuComponent } from '../shared/components/sidenav-menu/sidenav-menu.component';
+import { Router } from '@angular/router';
+import { APP_SERIES } from '../shared/constants';
 
 @Component({
-  selector: 'app-landing',
+  selector: 'f1app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.sass']
 })
 export class LandingComponent implements OnInit {
 
-  @ViewChild(SidenavMenuComponent) sidenavMenuComp: SidenavMenuComponent;
-  public menuItems = landingMenuItems;
-  public displayMenu: boolean = false;
-
-  constructor() {
+  constructor(
+    private router: Router) {
   }
 
   ngOnInit(): void {
-  }
-
-  menuIconClick() {
-    this.displayMenu = !this.displayMenu;
-    if (window.innerWidth < 768) {
-      this.sidenavMenuComp.toggleNav();
-    }
+    this.router.navigate([`${APP_SERIES}`]);
   }
 
 }

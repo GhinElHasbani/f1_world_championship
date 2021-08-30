@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { HelpersBaseClass } from '../../bases/helpers-base.class';
 
 @Component({
-  selector: 'app-data-table',
+  selector: 'f1app-data-table',
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.sass']
 })

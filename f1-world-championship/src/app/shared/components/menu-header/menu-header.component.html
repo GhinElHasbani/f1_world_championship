@@ -1,7 +1,7 @@
-<div class="highlighted_box">
+<div class="highlighted_box menu_header">
     <mat-toolbar color="primary" class="borders">
         <mat-toolbar-row>
-            <button mat-icon-button>
+            <button mat-icon-button *ngIf="menuItems && menuItems.length > 0">
                 <mat-icon (click)="clickMenuIcon()">menu</mat-icon>
             </button>
             <h1>{{'landing.header.title' | translate}}</h1>
@@ -11,10 +11,17 @@
 
         <mat-toolbar-row *ngIf="displayMenu" class="large_screen_menu">
             <div class="tabs_wrapper">
-                
-                <a *ngFor="let menuItem of menuItems" mat-button [routerLink]="menuItem.link" class="tab_item" routerLinkActive="_active" [routerLinkActiveOptions]="{exact: true}"> {{menuItem.label}} </a>
+
+                <a *ngFor="let menuItem of menuItems" mat-button [routerLink]="menuItem.link" class="tab_item"
+                    routerLinkActive="_active" [routerLinkActiveOptions]="{exact: true}"> {{menuItem.label}}</a>
 
             </div>
         </mat-toolbar-row>
     </mat-toolbar>
 </div>
+
+<f1app-sidenav-menu [menuItems]="menuItems">
+
+    <ng-content></ng-content>
+
+</f1app-sidenav-menu>

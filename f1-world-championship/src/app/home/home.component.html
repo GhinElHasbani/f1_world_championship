@@ -1,0 +1,7 @@
+<f1app-menu-header [menuItems]="menuItems" (menuIconClick)="menuIconClick()">
+
+    <div class="content_wrapper" [ngClass]="{'add_top && !small': displayMenu}">
+        <router-outlet></router-outlet>
+    </div>
+
+</f1app-menu-header>
