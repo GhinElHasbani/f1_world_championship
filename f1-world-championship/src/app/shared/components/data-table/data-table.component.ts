@@ -234,7 +234,7 @@ export class DataTableComponent extends HelpersBaseClass implements OnInit, Afte
   setPageChangeEvent(pageEvent: PageEvent) {
     if (this.isPaginatorEnabled()) {
       this.pageChangeEvent = {
-        offset: pageEvent.pageIndex + 1,
+        offset: pageEvent.pageIndex,
         limit: pageEvent.pageSize,
       };
     }

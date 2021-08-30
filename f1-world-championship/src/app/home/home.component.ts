@@ -2,7 +2,6 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { SidenavMenuComponent } from '../shared/components/sidenav-menu/sidenav-menu.component';
 import { SectionService } from '../shared/services/section.service';
 import { homeMenuItems } from './home.config';
 

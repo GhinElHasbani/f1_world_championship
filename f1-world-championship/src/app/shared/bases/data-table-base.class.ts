@@ -113,7 +113,7 @@ export abstract class DataTableBaseClass<RowModel> extends HelpersBaseClass {
             this.isDataTableDefined(this.dataTableComponent) &&
             this.isPaginatorEnabled()
         ) {
-            dataTable.matPaginatorPageIndex = this.paginatorConfig.offset;
+            dataTable.resetPaginator();
         }
     }
 }

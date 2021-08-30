@@ -35,6 +35,7 @@ export class ModulesComponent extends DataTableBaseClass<RaceModel> implements O
         this.moduleConfig = MODULES_CONFIG.find(m => m.name === this.currentModule);
         if (this.moduleConfig) {
           this.dataTableColumnsDefinition = this.moduleConfig.columnDef;
+          this.resetPaginatorPageIndex();
           this.getListing(this.paginatorConfig);
         }
       })

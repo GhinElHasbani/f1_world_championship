@@ -20,7 +20,7 @@
     </mat-toolbar>
 </div>
 
-<f1app-sidenav-menu [menuItems]="menuItems">
+<f1app-sidenav-menu [menuItems]="menuItems" *ngIf="menuItems && menuItems.length > 0">
 
     <ng-content></ng-content>
 
