@@ -3,20 +3,20 @@ import { HomeComponent } from './home.component';
 import { SharedModule } from '../shared/shared.module';
 import { HomeService } from './home.service';
 import { HomeRoutingModule } from './home-routing.module';
-import { RacesService } from './races/races.service';
-import { RacesComponent } from './races/races.component';
+import { ModulesComponent } from './modules/modules.component';
+import { ModulesService } from './modules/modules.service';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    RacesComponent
+    ModulesComponent
   ],
   imports: [
     SharedModule,
     HomeRoutingModule
   ],
-  providers: [HomeService, RacesService]
+  providers: [HomeService, ModulesService]
 })
 
 export class HomeModule { }

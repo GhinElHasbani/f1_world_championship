@@ -1,4 +1,10 @@
-import { LookupOptionModel } from "../../shared/models/frontend";
+import { DataTableColumnDefinition, LookupOptionModel } from "../../shared/models/frontend";
+
+export interface ModuleConfig {
+    name: string,
+    columnDef: DataTableColumnDefinition[],
+    propNameInApi: string
+}
 
 export class RaceModel {
     constructor(

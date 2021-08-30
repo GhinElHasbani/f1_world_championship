@@ -10,6 +10,7 @@ import { SidenavMenuComponent } from '../sidenav-menu/sidenav-menu.component';
 export class MenuHeaderComponent implements OnInit {
   @Output() menuIconClick: EventEmitter<any> = new EventEmitter();
   @Input() menuItems: MenuItem[] = [];
+  @Input() info: string;
   public displayMenu: boolean = false;
   @ViewChild(SidenavMenuComponent) sidenavMenuComp: SidenavMenuComponent;
 

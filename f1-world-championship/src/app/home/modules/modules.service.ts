@@ -4,7 +4,7 @@ import { HttpBaseClass } from '../../shared/bases/http-base.class';
 import { PageChangeEvent } from '../../shared/models/backend';
 
 @Injectable()
-export class RacesService extends HttpBaseClass {
+export class ModulesService extends HttpBaseClass {
 
   constructor(
     public http: HttpClient,
@@ -13,7 +13,7 @@ export class RacesService extends HttpBaseClass {
     super(http, injector);
   }
 
-  getRacesList(series: string, season: number, paginationObj: PageChangeEvent) {
-    return this.get(`${series}/${season}/races`, this.setAndGetParams(paginationObj));
+  getModuleList(series: string, season: number, module: string, paginationObj: PageChangeEvent) {
+    return this.get(`${series}/${season}/${module}`, this.setAndGetParams(paginationObj));
   }
 }

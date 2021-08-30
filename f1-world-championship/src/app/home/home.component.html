@@ -1,6 +1,6 @@
-<f1app-menu-header [menuItems]="menuItems" (menuIconClick)="menuIconClick()">
+<f1app-menu-header [menuItems]="menuItems" (menuIconClick)="menuIconClick()" [info]="currentSeason.toString()">
 
-    <div class="content_wrapper" [ngClass]="{'add_top && !small': displayMenu}">
+    <div class="content_wrapper" [ngClass]="{'add_top': displayMenu && !small}">
         <router-outlet></router-outlet>
     </div>
 

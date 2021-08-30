@@ -3,22 +3,22 @@ import { MenuItem } from "../shared/components/sidenav-menu/menu-items.model";
 export const homeMenuItems: MenuItem[] = [
     {
         label: "Seasons",
-        link: "/seasons"
+        link: "landing/:series"
     },
     {
         label: "Races",
-        link: "/races"
+        link: "/home/:series/:season/races"
     },
     {
         label: "Drivers",
-        link: "/divers"
+        link: "/home/:series/:season/drivers"
     },
     {
         label: "Constructors",
-        link: "/constructors"
+        link: "/home/:series/:season/constructors"
     },
     {
         label: "Circiuts",
-        link: "/circuits"
+        link: "/home/:series/:season/circuits"
     }
 ];

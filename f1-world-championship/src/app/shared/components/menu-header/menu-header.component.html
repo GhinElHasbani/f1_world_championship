@@ -6,14 +6,14 @@
             </button>
             <h1>{{'landing.header.title' | translate}}</h1>
             <span class="menu-spacer"></span>
-
+            <h3 *ngIf="info">{{info}}</h3>
         </mat-toolbar-row>
 
         <mat-toolbar-row *ngIf="displayMenu" class="large_screen_menu">
             <div class="tabs_wrapper">
 
                 <a *ngFor="let menuItem of menuItems" mat-button [routerLink]="menuItem.link" class="tab_item"
-                    routerLinkActive="_active" [routerLinkActiveOptions]="{exact: true}"> {{menuItem.label}}</a>
+                    routerLinkActive="underlined" [routerLinkActiveOptions]="{exact: true}"> {{menuItem.label}}</a>
 
             </div>
         </mat-toolbar-row>

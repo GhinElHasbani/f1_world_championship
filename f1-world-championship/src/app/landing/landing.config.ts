@@ -11,7 +11,7 @@ export const landingMenuItems: MenuItem[] = [
     },
     {
         label: "Drivers",
-        link: "/divers"
+        link: "/drivers"
     },
     {
         label: "Constructors",

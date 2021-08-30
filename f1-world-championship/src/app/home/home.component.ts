@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public displayMenu: boolean = false;
   small: boolean;
   getRouteSubscription: Subscription;
+  currentSeason: number;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
     this.getRouteSubscription = this.route.params.subscribe(p => {
       if (p['season'] || p['series']) {
+        this.currentSeason = p['season'];
         this.sectionService.sendSection({ season: p['season'], series: p['series'] })
         this.updateMenuItemsLinks(p['series'], p['season']);
       }
@@ -40,8 +42,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private updateMenuItemsLinks(series, season) {
     this.menuItems.forEach(m => {
-      m.link = `/home/${series}/${season}${m.link}`;
+      m.link = m.link.replace(':series', series);
+      m.link = m.link.replace(':season', season);
     });
+
   }
 
   menuIconClick() {
