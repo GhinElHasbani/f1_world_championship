@@ -24,9 +24,8 @@ export class SeasonsComponent extends HelpersBaseClass implements OnInit, OnDest
 
   ngOnInit(): void {
     const thisYear = (new Date()).getFullYear();
-    this.seasonsList = this.languageHelper.generateListFromTo(this.startYear, thisYear).map(m => { return { Season: m } });
+    this.seasonsList = this.languageHelper.generateListFromTo(this.startYear, thisYear).sort((a, b) => b - a).map(m => { return { Season: m } });
     this.getWinnersBySeason(this.seasonsList);
-    console.log(this.seasonsList);
   }
 
   getWinnersBySeason(seasonsList) {
@@ -45,7 +44,6 @@ export class SeasonsComponent extends HelpersBaseClass implements OnInit, OnDest
         }
       });
     });
-    console.log(seasonsList);
   }
 
   goToRaceDetails(season) {

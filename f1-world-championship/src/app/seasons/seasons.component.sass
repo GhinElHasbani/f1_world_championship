@@ -1,4 +1,5 @@
 @import 'src/assets/global-styles/abstracts/vars'
+@import 'src/assets/global-styles/abstracts/colors'
     
 .cards_wrapper
     display: inline-flex
@@ -7,18 +8,37 @@
     gap: 20px
     padding: 25px 3%
     mat-card.mat-card.year_card
-        .mat-card-image
-            height: calc(100% - 190px)
-            object-fit: cover
+        box-shadow: none !important
+        border-top: 2px solid $f1app-black
+        border-right: 2px solid $f1app-black
+        border-radius: 0px
+        border-top-right-radius: 10px
+        overflow: hidden
+        padding: 20px 20px 4px 20px
+        .image-text-line
+            display: flex
+            margin: 0px -16px
+            &-img.mat-card-image
+                margin: 0px
+                flex: 1
+                width: 50px
+            &-txt
+                flex: 2
+                padding: 0px 10px
+                width: 70px
         &:hover
-            background-color: #fff2f2
-            position: relative
-            transform: scaleX(1.5) scaleY(1.1)
-            transition: 0.4s ease-in-out
-            z-index: 1
+            border-color: $f1app-red
+            // position: relative
+            // transform: scale(1.1)
+            // transition: 0.4s ease-in-out
+            // z-index: 1
             mat-card-title.mat-card-title
-                transition: font-size 0.4s
-                font-size: x-large
+                transition: color 0.4s
+                color: $f1app-red
+                cursor: pointer
+                &:hover
+                    transition: font-size 0.4s
+                    font-size: x-large
 
 @media screen and ( max-width: $breakpoint-mobile )
     .cards_wrapper

@@ -6,6 +6,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient } from '@angular/common/http';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { CachingService } from '../services/caching.service';
+import { SectionService } from '../services/section.service';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/translation/', `.json?v=${new Date().getTime()}`);
@@ -27,7 +28,8 @@ export class ServicesModule {
           deps: [HttpClient]
         }
       }).providers,
-      SnackbarService
+      SnackbarService,
+      SectionService
     ];
   }
 }
