@@ -16,4 +16,8 @@ export class ModulesService extends HttpBaseClass {
   getModuleList(series: string, season: number, module: string, paginationObj: PageChangeEvent) {
     return this.get(`${series}/${season}/${module}`, this.setAndGetParams(paginationObj));
   }
+
+  getModuleTop1(series: string, season: number, round: number) {
+    return this.get(`${series}/${season}/${round}/results/1/qualifying`);
+  }
 }

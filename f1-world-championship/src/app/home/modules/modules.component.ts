@@ -7,6 +7,7 @@ import { PageChangeEvent } from '../../shared/models/backend';
 import { MODULES_CONFIG } from './modules.config';
 import { SectionService } from 'src/app/shared/services/section.service';
 import { DataTableColumnDefinition } from 'src/app/shared/models/frontend';
+import { BeObject, MRData } from 'src/app/shared/models/backend/be-data.model';
 
 @Component({
   selector: 'f1app-modules',
@@ -15,7 +16,7 @@ import { DataTableColumnDefinition } from 'src/app/shared/models/frontend';
 })
 
 export class ModulesComponent extends DataTableBaseClass<RaceModel> implements OnInit, OnDestroy {
-  //need to handle
+
   moduleConfig: ModuleConfig;
   dataTableColumnsDefinition: DataTableColumnDefinition[];
   getSubscription: Subscription;
@@ -54,7 +55,16 @@ export class ModulesComponent extends DataTableBaseClass<RaceModel> implements O
   getListing(paginationObj?: PageChangeEvent) {
     this.getSubscription = this._modulesService.getModuleList(this.series, this.season, this.currentModule, this.getPaginationParam(paginationObj)).subscribe(data => {
       if (data) {
-        this.setDataTableData(data, this.moduleConfig.propNameInApi)
+
+        this.setDataTableData(this.getBody<BeObject>(data)?.MRData, this.moduleConfig.propNameInApi);
+        // console.log(this.dataTableData.currentlyVisibleRows);
+        // this.dataTableData.currentlyVisibleRows.forEach(c => {
+        //   this._modulesService.getModuleTop1(this.series, this.season, c.round).subscribe(s => {
+        //     c.top1 = s.body;
+        //   })
+        //   console.log(this.dataTableData.currentlyVisibleRows);
+        // });
+
       }
     }, err => {
 

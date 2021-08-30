@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataTableComponent } from '../components/data-table/data-table.component';
 import { defaultPaginatorConfig } from '../configs';
 import { DataTableRequestModel } from '../models/backend';
+import { MRData } from '../models/backend/be-data.model';
 import { PageChangeEvent } from '../models/backend/page-change-event.model';
 import { DataTable, DataTableColumnDefinition } from '../models/frontend';
 import { HelpersBaseClass } from './helpers-base.class';
@@ -26,34 +27,17 @@ export abstract class DataTableBaseClass<RowModel> extends HelpersBaseClass {
 
     onPage(pageChangeEvent: PageChangeEvent) { }
 
-    setDataTableData(response: HttpResponse<any>, property?: string) {
-        this.dataTableData = this.getDataTablePayloadFromResponse(response, property);
-    }
-
-
-    getDataTablePayloadFromResponse(response: HttpResponse<any>, property?: string): DataTable<any> {
+    setDataTableData(response: MRData, property?: string) {
         const dataTablePayload = new DataTable<any>();
 
-        const body = this.getBody(response)?.MRData;
-
-        const rows = this.isNotDefined(property) ? (body || []) : (this.getPropValue(body, property) || []);
+        const rows = this.isNotDefined(property) ? (response || []) : (this.getPropValue(response, property) || []);
 
         dataTablePayload.currentlyVisibleRows = rows;
-        dataTablePayload.totalNumberOfVisibleRows = body.total;
+        dataTablePayload.totalNumberOfVisibleRows = response.total;
 
-        return this.languageHelper.objectAssign([dataTablePayload]);
+        this.dataTableData = this.languageHelper.objectAssign([dataTablePayload]);
     }
-
-    getDataTableDataFromArray(array: any[]) {
-        const dataTablePayload = new DataTable<any>();
-        if (!this.isDefined(array)) { array = []; }
-
-        dataTablePayload.currentlyVisibleRows = array;
-        dataTablePayload.totalNumberOfVisibleRows = this.arrayCount(array);
-
-        return dataTablePayload;
-    }
-
+    
     getPaginationParam(paginationObj?: PageChangeEvent): DataTableRequestModel {
         let pagParam: DataTableRequestModel;
         if (paginationObj && this.isPaginatorEnabled()) {

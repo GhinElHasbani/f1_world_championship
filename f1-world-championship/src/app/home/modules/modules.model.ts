@@ -8,11 +8,12 @@ export interface ModuleConfig {
 
 export class RaceModel {
     constructor(
-        public Season?: number,
-        public Round?: number,
-        public RaceName?: string,
-        public Date?: Date,
+        public season?: number,
+        public round?: number,
+        public raceName?: string,
+        public date?: Date,
         public Circuit?: LookupOptionModel,
+        public top1?: any,
         public Locality?: LookupOptionModel,
         public Country?: LookupOptionModel,
         public Information?: LookupOptionModel,

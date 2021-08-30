@@ -64,12 +64,12 @@ export interface MRData {
     xmlns: string;
     series: string;
     url: string;
-    limit: string;
-    offset: string;
-    total: string;
+    limit: number;
+    offset: number;
+    total: number;
     RaceTable: RaceTable;
 }
 
-export interface RootObject {
+export interface BeObject {
     MRData: MRData;
 }
